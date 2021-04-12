@@ -85,6 +85,14 @@ Resources:
           FromPort: 8501
           ToPort: 8501
           CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
+          FromPort: 8000
+          ToPort: 8000
+          CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
+          FromPort: 9000
+          ToPort: 9000
+          CidrIp: 0.0.0.0/0
   ManagerLT:
     Type: "AWS::EC2::LaunchTemplate"
     Properties:
@@ -108,6 +116,7 @@ Resources:
               curl -L "https://github.com/docker/compose/releases/download/1.26.2/docker-compose-$(uname -s)-$(uname -m)" \
               -o /usr/local/bin/docker-compose
               chmod +x /usr/local/bin/docker-compose
+              curl -L https://downloads.portainer.io/portainer-agent-stack.yml -o portainer-agent-stack.yml
               yum install python3 -y
               amazon-linux-extras install epel -y
               yum install python-pip -y
@@ -189,6 +198,7 @@ Resources:
           curl -L "https://github.com/docker/compose/releases/download/1.26.2/docker-compose-$(uname -s)-$(uname -m)" \
           -o /usr/local/bin/docker-compose
           chmod +x /usr/local/bin/docker-compose
+          curl -L https://downloads.portainer.io/portainer-agent-stack.yml -o portainer-agent-stack.yml
           yum install python3 -y
           amazon-linux-extras install epel -y
           yum install python-pip -y

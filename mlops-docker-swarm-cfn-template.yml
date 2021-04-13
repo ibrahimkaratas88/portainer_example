@@ -109,6 +109,7 @@ Resources:
             !Sub |
               #! /bin/bash
               yum update -y
+              yum install git
               amazon-linux-extras install docker -y
               systemctl start docker
               systemctl enable docker
@@ -191,6 +192,7 @@ Resources:
           #! /bin/bash
           yum update -y
           hostnamectl set-hostname Grand-Master
+          yum instll git
           amazon-linux-extras install docker -y
           systemctl start docker
           systemctl enable docker
